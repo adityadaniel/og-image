@@ -61,5 +61,5 @@ function getDefaultImages(images: string[], theme: Theme): string[] {
     if (!images[0].startsWith('https://assets.vercel.com/') && !images[0].startsWith('https://assets.zeit.co/')) {
         images[0] = defaultImage;
     }
-    return images;
+    return [];
 }

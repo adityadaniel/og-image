@@ -9,6 +9,8 @@ const emojify = (text: string) => twemoji.parse(text, twOptions);
 
 const rglr = readFileSync(`${__dirname}/../_fonts/Inter-Regular.woff2`).toString('base64');
 const bold = readFileSync(`${__dirname}/../_fonts/Inter-Bold.woff2`).toString('base64');
+const jbrglr = readFileSync(`${__dirname}/../_fonts/JetBrainsMono-Regular.woff2`).toString('base64');
+const jbbold = readFileSync(`${__dirname}/../_fonts/JetBrainsMono-Bold.woff2`).toString('base64');
 const mono = readFileSync(`${__dirname}/../_fonts/Vera-Mono.woff2`).toString('base64');
 
 function getCss(theme: string, fontSize: string) {
@@ -37,6 +39,20 @@ function getCss(theme: string, fontSize: string) {
     }
 
     @font-face {
+        font-family: 'JetBrains Mono';
+        font-style:  normal;
+        font-weight: normal;
+        src: url(data:font/woff2;charset=utf-8;base64,${jbrglr}) format('woff2');
+    }
+
+    @font-face {
+        font-family: 'JetBrains Mono';
+        font-style:  normal;
+        font-weight: bold;
+        src: url(data:font/woff2;charset=utf-8;base64,${jbbold}) format('woff2');
+    }
+
+    @font-face {
         font-family: 'Vera';
         font-style: normal;
         font-weight: normal;
@@ -49,7 +65,7 @@ function getCss(theme: string, fontSize: string) {
         background-size: 100px 100px;
         height: 100vh;
         display: flex;
-        text-align: center;
+        text-align: left;
         align-items: center;
         justify-content: center;
     }
@@ -95,11 +111,11 @@ function getCss(theme: string, fontSize: string) {
     }
     
     .heading {
-        font-family: 'Inter', sans-serif;
+        font-family: 'JetBrains Mono', sans-serif;
         font-size: ${sanitizeHtml(fontSize)};
         font-style: normal;
         color: ${foreground};
-        line-height: 1.8;
+        line-height: 1.5;
     }`;
 }
 
